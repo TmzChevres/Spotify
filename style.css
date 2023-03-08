@@ -1,20 +1,20 @@
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     padding: 5vh 5vw;
-  }
-  
-  p {
+}
+
+p {
     max-width: 700px;
-  }
-  
-  li {
+}
+
+li {
     margin-bottom: 5px;
-  }
-  
-  input {
+}
+
+input {
     width: 250px;
     margin-bottom: 10px;
-  }
+}
