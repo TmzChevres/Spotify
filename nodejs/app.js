@@ -22,7 +22,7 @@ var spotifyApi = new SpotifyWebApi({
 //source: https://developer.spotify.com/documentation/general/guides/authorization/code-flow/
 app.get('/login', function (req, res) {
     var scope = "user-library-read";
-    var state = generateRandomString(16);
+    var state = randomString(16,abcdefghijklmnopqrstuvwxyz0123456789);
 
     res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
@@ -45,3 +45,10 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+//return a random string of a given length using the given character set
+function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+}
