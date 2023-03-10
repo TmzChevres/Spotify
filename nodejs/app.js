@@ -1,4 +1,4 @@
-//stuff to connect to app.ks
+//stuff to connect to app.js
 const express = require('express');
 const app = express();
 const port = 5623;
@@ -12,12 +12,28 @@ var secureData = fs.readFileSync('secure.json');
 const secure = JSON.parse(secureData);
 
 var spotifyApi = new SpotifyWebApi({
-  clientId : secure.clientId,
-  clientSecret : secure.clientSecret,
+    clientId: secure.clientId,
+    clientSecret: secure.clientSecret,
+    redirectUri: 'https://peddiecs.peddie.org/live/Spotify/index.html'
 });
 
-console.log(spotifyApi);
 
+//function to login user
+//source: https://developer.spotify.com/documentation/general/guides/authorization/code-flow/
+app.get('/login', function (req, res) {
+    var scope = "user-library-read";
+    var state = generateRandomString(16);
+
+    res.redirect('https://accounts.spotify.com/authorize?' +
+    querystring.stringify({
+      response_type: 'code',
+      client_id: spotifyApi.clientId,
+      scope: scope,
+      redirect_uri: spotifyApi.redirectUri,
+      state: state
+    }));
+
+});
 
 
 // sets express to listen on local port 5623

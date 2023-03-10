@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Spotify Artist Web</title>
-    <meta name="description" content="Visual display of collaborating artists">
-    <meta charset="utf-8">
-    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      <h1>Spotify Artist Web</h1>
-      <p>Learn more about the connections between your favor.</p>
-      <p>To access artist information, we use the <a href="https://developer.spotify.com">Spotify API</a>.</p>
-    </header>
 
-    <main>
-      <h4>Log in to see your web</h4>
-      <a id="login" href="" class="btn btn-sm btn-primary">Log In With Spotify</a>
-    </main>
+<head>
+  <title>Spotify Artist Web</title>
+  <meta name="description" content="Visual display of collaborating artists">
+  <meta charset="utf-8">
+  <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-    <script src="/index.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Spotify Artist Web</h1>
+    <p>Learn more about the connections between your favor.</p>
+    <p>To access artist information, we use the <a href="https://developer.spotify.com">Spotify API</a>.</p>
+  </header>
+
+  <main>
+    <h4>Log in to see your web</h4>
+    <button id="login" href="" onclick="login();" class="btn btn-sm btn-primary">Log In With Spotify</button>
+    <script>
+      function login() {
+        if (window.jQuery) {
+          $.get("https://peddiecs.peddie.org/nodejs/getAllMembers", {
+          }, function (res) {
+            console.log(res);
+          });
+        }
+      }
+    </script>
+  </main>
+</body>
+
 </html>
