@@ -26,7 +26,7 @@ app.get('/login', function (req, res) {
     var scope = "user-library-read";
     var state = randomString(16,'abcdefghijklmnopqrstuvwxyz0123456789');
 
-    res.redirect('https://accounts.spotify.com/authorize?' +
+    res.send('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
       client_id: secure.clientId,
