@@ -26,7 +26,8 @@
         if (window.jQuery) {
           $.get("https://peddiecs.peddie.org/live/Spotify/nodejs/login", {
           }, function (res) {
-            console.log(res);
+            console.log("Redirecting to: "+res);
+            window.location = res;
           });
         }
       }
