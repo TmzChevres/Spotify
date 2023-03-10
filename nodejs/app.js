@@ -22,7 +22,7 @@ var spotifyApi = new SpotifyWebApi({
 //source: https://developer.spotify.com/documentation/general/guides/authorization/code-flow/
 app.get('/login', function (req, res) {
     var scope = "user-library-read";
-    var state = randomString(16,abcdefghijklmnopqrstuvwxyz0123456789);
+    var state = randomString(16,'abcdefghijklmnopqrstuvwxyz0123456789');
 
     res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
