@@ -11,11 +11,12 @@ const SpotifyWebApi = require('spotify-web-api-node');
 // Read in the contents of the secure.json file
 var secureData = fs.readFileSync('secure.json');
 const secure = JSON.parse(secureData);
+const redirectUri = 'https://peddiecs.peddie.org/live/Spotify/index.html';
 
 var spotifyApi = new SpotifyWebApi({
     clientId: secure.clientId,
     clientSecret: secure.clientSecret,
-    redirectUri: 'https://peddiecs.peddie.org/live/Spotify/index.html'
+    redirectUri: redirectUri
 });
 
 
@@ -28,9 +29,9 @@ app.get('/login', function (req, res) {
     res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
-      client_id: spotifyApi.clientId,
+      client_id: secure.clientId,
       scope: scope,
-      redirect_uri: spotifyApi.redirectUri,
+      redirect_uri: redirectUri,
       state: state
     }));
 
