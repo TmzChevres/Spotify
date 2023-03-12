@@ -5,8 +5,7 @@ const app = express();
 const port = 5623;
 
 const fs = require('fs');
-const SpotifyWebApi = require('spotify-web-api-node');
-
+const request = require('request');
 
 // Read in the contents of the secure.json file
 var secureData = fs.readFileSync('secure.json');
@@ -20,7 +19,7 @@ const redirectUri = 'https://peddiecs.peddie.org/live/Spotify/web.html';
 //login user (redirects to spotify login)
 //source: https://developer.spotify.com/documentation/general/guides/authorization/code-flow/
 app.get('/login', function (req, res) {
-    var scope = "user-library-read";
+    var scope = "user-top-read";
     // var state = randomString(16,'abcdefghijklmnopqrstuvwxyz0123456789');
 
     res.send('https://accounts.spotify.com/authorize?' +
@@ -31,27 +30,6 @@ app.get('/login', function (req, res) {
             redirect_uri: redirectUri,
             // state: state
         }));
-});
-
-//request access token
-app.get('/requestToken', function (req, res) {
-
-    var code = req.query.code || null;
-
-    var authOptions = {
-        url: 'https://accounts.spotify.com/api/token',
-        form: {
-            code: code,
-            redirect_uri: redirect_uri,
-            grant_type: 'authorization_code'
-        },
-        headers: {
-            'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
-        },
-        json: true
-    };
-
-
 });
 
 
