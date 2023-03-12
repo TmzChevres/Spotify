@@ -27,4 +27,5 @@ function getTopArtists(time_range, limit) {
         .catch(error => console.error(error));
 }
 
-console.log(getTopArtists);
+console.log(token);
+console.log(getTopArtists("medium-term",10));
