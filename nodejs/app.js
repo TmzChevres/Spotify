@@ -11,7 +11,7 @@ const SpotifyWebApi = require('spotify-web-api-node');
 // Read in the contents of the secure.json file
 var secureData = fs.readFileSync('secure.json');
 const secure = JSON.parse(secureData);
-const redirectUri = 'https://peddiecs.peddie.org/live/Spotify/index.html';
+const redirectUri = 'https://peddiecs.peddie.org/live/Spotify/web.html';
 
 var spotifyApi = new SpotifyWebApi({
     clientId: secure.clientId,
