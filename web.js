@@ -28,4 +28,6 @@ function getTopArtists(time_range, limit) {
 }
 
 console.log(token);
-console.log(getTopArtists("medium-term",10));
+getTopArtists("medium_term", 10)
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
