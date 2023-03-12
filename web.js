@@ -12,8 +12,9 @@ const token = searchParams.get("access_token");
 //read artists & update list
 var artists;
 
-getTopArtists("medium_term", 10)
+getTopArtists("medium_term", 50)
   .then(data => {
+    console.log(data);
     for(var i in data){
         artist = data[i];
         document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item">${artist.name}</li>`;
