@@ -58,8 +58,10 @@ html {
 .artist-list {
   width: 90%;
   margin-left: 0;
+  margin-right: 5%;
   padding-left: 15%;
-  max-height: 80%;
+  max-height: calc(100% - 3.5em);
+  overflow-y: scroll;
 }
 
 .artist-item {
