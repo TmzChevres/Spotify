@@ -65,6 +65,8 @@ html {
 }
 
 .artist-item {
+  user-select: none;
+  cursor:pointer;
   border-bottom: solid 1px var(--detail);
   height: auto;
   grid-template-columns: 3em auto 3em;
