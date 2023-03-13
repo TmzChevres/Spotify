@@ -74,3 +74,13 @@ html {
 .artist-item:last-child {
   border-bottom: none;
 }
+
+.artist-item p {
+  margin-right:0 0.5em;
+  float:right;
+  opacity: 0.5;
+}
+
+.artist-item:hover p {
+  opacity: 0;
+}
