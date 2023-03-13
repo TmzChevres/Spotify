@@ -17,9 +17,12 @@ getTopArtists("medium_term", 10)
     console.log(data);
     for(var i in data){
         var artist = data[i];
-        var genres = artist.genres;
+        var genres = '';
+        for(var j in artist.genres){
+            genres += '<li>'+artist.genres[j].charAt(0).toUpperCase() + artist.genres[j].slice(1);+'</li>'
+        }
 
-        document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item"><p>▼</p>${artist.name}<ul>${'<li>'+genres.toString().replaceAll(',','</li><li>')+'</li>'}</ul></li>`;
+        document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item"><p>▼</p>${artist.name}<ul class="artist-data">${genres}</ul></li>`;
     }
   })
   .catch(error => console.error(error));
