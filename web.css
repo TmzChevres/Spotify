@@ -76,7 +76,7 @@ html {
 }
 
 .artist-item p {
-  margin-right:0 0.5em;
+  margin:0 0.5em;
   float:right;
   opacity: 0.5;
 }
