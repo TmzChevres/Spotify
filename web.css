@@ -78,9 +78,9 @@ html {
 .artist-item p {
   margin:0 0.5em;
   float:right;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .artist-item:hover p {
-  opacity: 0;
+  opacity: 0.5;
 }
