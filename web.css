@@ -56,11 +56,11 @@ html {
 }
 
 .artist-list {
-  width: 90%;
+  width: 98%;
   margin-left: 0;
   margin-right: 5%;
   padding-left: 15%;
-  max-height: calc(100% - 3.5em);
+  max-height: calc(100% - 4.5em);
   overflow-y: scroll;
 }
 

@@ -12,7 +12,7 @@ const token = searchParams.get("access_token");
 //read artists & update list
 var artists;
 
-getTopArtists("medium_term", 50)
+getTopArtists("medium_term", 10)
   .then(data => {
     console.log(data);
     for(var i in data){
