@@ -18,9 +18,8 @@ getTopArtists("medium_term", 10)
     for(var i in data){
         var artist = data[i];
         var genres = artist.genres;
-        console.log(genres);
 
-        document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item"><p>▼</p>${artist.name}<ul>${genres}</ul></li>`;
+        document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item"><p>▼</p>${artist.name}<ul>${'<li>'+genres.toString().replaceAll(',','<li></li>')+'</li>'}</ul></li>`;
     }
   })
   .catch(error => console.error(error));
