@@ -3,7 +3,7 @@
     <meta name="description" content="Visual display of collaborating artists">
     <meta charset="utf-8">
     <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="web.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -22,6 +22,28 @@
                 <ul class="artist-data"></ul>
             </li> -->
         </ul>
+        <script>
+            // Get all the artist items
+            const artistItems = document.querySelectorAll('.artist-item');
+            // Loop through each artist item
+            artistItems.forEach(item => {
+                // Get the artist data element for this item
+                const artistData = item.querySelector('.artist-data');
+                // Hide the artist data by default
+                artistData.style.display = 'none';
+                // Add a click event listener to the item
+                item.addEventListener('click', () => {
+                    // If the artist data is currently hidden, show it
+                    if (artistData.style.display === 'none') {
+                        artistData.style.display = 'block';
+                    }
+                    // Otherwise, hide it
+                    else {
+                        artistData.style.display = 'none';
+                    }
+                });
+            });
+        </script>
     </div>
     <div id="main">
         main
@@ -51,9 +73,9 @@
         $(document).mouseup(function (e) {
             if (dragging) {
                 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-                var size = e.pageX+2;
-                if(size<0.2*vw) size = 0.2*vw;
-                if(size>0.5*vw) size = 0.5*vw;
+                var size = e.pageX + 2;
+                if (size < 0.2 * vw) size = 0.2 * vw;
+                if (size > 0.5 * vw) size = 0.5 * vw;
                 $('#navbar').css("width", size);
                 $('#main').css("left", size);
                 $('#ghostbar').remove();
