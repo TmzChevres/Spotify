@@ -16,8 +16,10 @@ getTopArtists("medium_term", 10)
   .then(data => {
     console.log(data);
     for(var i in data){
-        artist = data[i];
-        document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item"><p>▼</p>${artist.name}</li>`;
+        var artist = data[i];
+        var genres = artist.genres;
+
+        document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item"><p>▼</p>${artist.name}<ul>${genres}</ul></li>`;
     }
   })
   .catch(error => console.error(error));
