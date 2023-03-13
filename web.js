@@ -25,7 +25,7 @@ getTopArtists("medium_term", 10)
         document.getElementsByClassName("artist-list")[0].innerHTML+=`<li class="artist-item"><p>▼</p>${artist.name}<ul class="artist-data">${genres}</ul></li>`;
     }
 
-    expandList();
+    addListListeners();
   })
   .catch(error => console.error(error));
 
@@ -48,13 +48,14 @@ function getTopArtists(time_range, limit) {
 }
 
 
-function expandList(){
+function addListListeners(){
     // Get all the artist items
     const artistItems = document.querySelectorAll('.artist-item');
     // Loop through each artist item
     artistItems.forEach(item => {
         // Get the artist data element for this item
         const artistData = item.querySelector('.artist-data');
+        const dropdown = item.querySelector('p')
         // Hide the artist data by default
         artistData.style.display = 'none';
         // Add a click event listener to the item
@@ -63,10 +64,12 @@ function expandList(){
             console.log("click");
             if (artistData.style.display === 'none') {
                 artistData.style.display = 'block';
+                dropdown.style.opacity = 1;
             }
             // Otherwise, hide it
             else {
                 artistData.style.display = 'none';
+                dropdown.style.opacity = null;
             }
         });
     });
